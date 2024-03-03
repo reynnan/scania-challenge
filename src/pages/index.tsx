@@ -1,9 +1,13 @@
 import PreviousResults from "@/components/PreviousResults";
 import PromptForm from "@/components/PromptForm";
+import Head from "next/head";
 
 export default function Index() {
   return (
     <>
+      <Head>
+        <title>Ratatouille AI</title>
+      </Head>
       <section
         className={`container mx-auto flex flex-col max-w-5xl items-center py-[10vh] px-6 md:px-0`}
       >

@@ -1,5 +1,6 @@
 import FavoriteMealList from "@/components/FavoriteMealList";
 import { useFavoriteMealsContext } from "@/providers/FavoriteMealsProvider";
+import Head from "next/head";
 import Link from "next/link";
 
 export default function Grocery() {
@@ -7,6 +8,9 @@ export default function Grocery() {
 
   return (
     <section className={`flex flex-col w-full`}>
+      <Head>
+        <title> Favorite Meals </title>
+      </Head>
       <FavoriteMealList />
       {favoriteMeals.length === 0 && (
         <div className="hero bg-base-200">
