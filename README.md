@@ -1,6 +1,12 @@
-# Scania Challenge by Reynnan Viktor
+# Scania Challenge by Reynnan Viktor (Ratatouille AI)
+
+With this project I aimed on creating an AI that could help find recipes for my daily life.
+Ratatouille AI can help you with fun and easy recipes, telling you all about the recipe ingredients and instructions.
 
 ## How to run it
+
+You can use docker or simple install it using `npm` & `npm run dev`, this project is also deployed on the URL: https://scania-challenge.vercel.app/
+There is also a small ci-cd github workflow running the simple tests every time we create a PR or commit to remote.
 
 ### Using Docker
 
@@ -14,6 +20,8 @@
 3. Go to localhost:3000
 
 ## Tests
+
+To run the tests locally make sure you are running the porject first
 
 ### Integration test with Cypress
 
