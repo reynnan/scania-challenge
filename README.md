@@ -1,6 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Scania Challenge by Reynnan Viktor
 
-## Getting Started
+## How to run it
+
+### Using Docker
+1. `docker-compose -f docker-compose-dev.yml up -d`
+2. Go to localhost:3000
+
+### Using Npm
+1. Run `npm install`
+2. Once all dependencies are installed do: `npm run dev`
+3. Go to localhost:3000
+
+## Tests
+### Integration test with Cypress
+####  `yarn cypress:open`
+Opens the Cypress GUI
+#### `yarn cypress:run`
+Runs Cypress CLI
+
+
+## Getting Started (default documentation given by NextJS cli)
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 
