@@ -38,13 +38,13 @@ export default function SearchInput({
         value={value}
         onChange={onChange}
       />
-      <span className="btn btn-xs btn-ghost">
+      <button className="btn btn-xs btn-ghost" type="submit">
         {isLoading ? (
           <span className="loading loading-spinner loading-sm"></span>
         ) : (
           <SearchIcon isActive={!!value} />
         )}
-      </span>
+      </button>
     </label>
   );
 }
