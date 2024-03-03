@@ -3,21 +3,31 @@
 ## How to run it
 
 ### Using Docker
+
 1. `docker-compose -f docker-compose-dev.yml up -d`
 2. Go to localhost:3000
 
 ### Using Npm
+
 1. Run `npm install`
 2. Once all dependencies are installed do: `npm run dev`
 3. Go to localhost:3000
 
 ## Tests
+
 ### Integration test with Cypress
-####  `yarn cypress:open`
+
+#### `yarn cypress:open`
+
 Opens the Cypress GUI
+
 #### `yarn cypress:run`
+
 Runs Cypress CLI
 
+## API
+
+You can see how I'm making a request to a LLM in the folder `pages/api`
 
 ## Getting Started (default documentation given by NextJS cli)
 

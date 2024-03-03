@@ -1,12 +1,14 @@
 export const runtime = "edge";
+import OpenAI from 'openai';
 import { NextRequest } from "next/server";
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import { GoogleGenerativeAIStream, StreamingTextResponse } from "ai";
+import { OpenAIStream, StreamingTextResponse } from "ai";
 import { generatePromptHelper } from "@/utils/ai";
 
-const genAI = new GoogleGenerativeAI(
-  process.env.AI_KEY as string
-);
+
+const openai = new OpenAI({
+  apiKey: process.env.AI_KEY,
+});
+
 
 export default async function handler(req: NextRequest) {
   if (req.method !== "POST") {
@@ -39,14 +41,15 @@ export default async function handler(req: NextRequest) {
   }
 
   try {
-    const geminiStream = await genAI
-      .getGenerativeModel({ model: "gemini-pro" })
-      .generateContentStream(generatePromptHelper(body.prompt));
+      // Ask OpenAI for a streaming chat completion given the prompt
+    const response = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      stream: true,
+      messages: generatePromptHelper(body.prompt),
+    });
+ 
+    const stream = OpenAIStream(response);
 
-    // Convert the response into a friendly text-stream
-    const stream = GoogleGenerativeAIStream(geminiStream);
-
-    // Respond with the stream
     return new StreamingTextResponse(stream);
   } catch (error) {
     return new Response(
