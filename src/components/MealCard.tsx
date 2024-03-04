@@ -25,7 +25,7 @@ export default function MealCard({
   return (
     <>
       <div
-        className="my-1 w-full lg:my-4 lg:px-4 md:w-1/2 lg:w-1/3 cursor-pointer"
+        className="my-1 w-full lg:my-4 md:px-2 lg:px-4 md:w-1/2 lg:w-1/3 cursor-pointer"
         onClick={() => handleCardClick()}
       >
         <article className="overflow-hidden rounded-lg shadow-lg relative bg-base-300">
