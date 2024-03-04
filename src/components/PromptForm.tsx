@@ -34,12 +34,11 @@ export default function PromptForm() {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-      const ratatouilleAnswer = await response.text();
-      const formattedAnswer = formatResponse(ratatouilleAnswer);
+      const ratatouilleAnswer = await response.json();
       const mealWithId = {
         // Room for improvement here, this can easily cause some render problems but a cheap solution if I want to only expend a few hours working on it
-        id: formattedAnswer.title + prompt,
-        ...formattedAnswer,
+        id: ratatouilleAnswer.recipe.title + prompt,
+        ...ratatouilleAnswer.recipe,
       };
       setResponse(mealWithId);
       addNewResult(mealWithId);

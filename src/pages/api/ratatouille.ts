@@ -1,14 +1,11 @@
 export const runtime = "edge";
-import OpenAI from 'openai';
+import OpenAI from "openai";
 import { NextRequest } from "next/server";
-import { OpenAIStream, StreamingTextResponse } from "ai";
 import { generatePromptHelper } from "@/utils/ai";
-
 
 const openai = new OpenAI({
   apiKey: process.env.AI_KEY,
 });
-
 
 export default async function handler(req: NextRequest) {
   if (req.method !== "POST") {
@@ -41,20 +38,18 @@ export default async function handler(req: NextRequest) {
   }
 
   try {
-      // Ask OpenAI for a streaming chat completion given the prompt
+    // Ask OpenAI for a streaming chat completion given the prompt
     const response = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
-      stream: true,
+      model: "gpt-3.5-turbo",
+      response_format: { type: "json_object" },
       messages: generatePromptHelper(body.prompt),
     });
- 
-    const stream = OpenAIStream(response);
 
-    return new StreamingTextResponse(stream);
+    // Just interested in one recipe per time
+    return new Response(response.choices[0].message.content, {
+      status: 200,
+    });
   } catch (error) {
-    return new Response(
-      undefined,
-      { status: 502 }
-    ); // Bad Gateway
+    return new Response(undefined, { status: 502 }); // Bad Gateway
   }
 }
