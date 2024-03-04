@@ -16,7 +16,7 @@ export default function Index() {
             Ratatouille AI <span>🐭</span>
           </h1>
           <p className="mt-0 mb-5 md:mb-10 text-gray-500">
-            Ratatouille can help you suggesting recipes ideas and instructions!
+            Remy can help you suggesting recipes ideas and instructions!
           </p>
           <PromptForm />
         </div>
